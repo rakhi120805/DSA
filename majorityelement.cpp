@@ -16,3 +16,4 @@ public:
         return -1;
     }
 };
+// map always stores the key in sorted order
