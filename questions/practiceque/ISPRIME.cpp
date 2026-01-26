@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    bool isPrime=1;
+    // if(n==1 || n==2){
+    //     isPrime=1;
+    // }
+    // else{
+        for(int i=2;i<n;i++){
+            if(n%i==0){
+                isPrime=0;
+                break;
+            }
+        }
+    // }
+    if(isPrime==0){
+        cout<<"Not a Prime number"<<endl;
+    }
+    else{
+        cout<<"is a prime number"<<endl;
+    }
+}
