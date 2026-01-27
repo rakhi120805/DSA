@@ -35,16 +35,13 @@ int sumEqualsZero(vector<int>&arr){
             count++;
         }
         if(mpp.find(sum)!=mpp.end()){
-            mpp[sum]++;
-            count=count + mpp[sum];
+            count++;
         }
-        mpp[sum]=0;
+        else{
+            mpp[sum]=0;
+        }
      }
-     for(auto it: mpp){
-        cout<<it.first<<"-"<<it.second;
-        cout<<endl;
-     }
-     return count;
+     return (count*(count + 1));
 }
 
 int main(){
