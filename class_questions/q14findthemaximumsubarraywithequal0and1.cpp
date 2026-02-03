@@ -28,7 +28,7 @@ int max_subarray_count(vector<int>& arr){
         }
     }
 
-    
+    -
     // for(int i=0;i<n;i++){
 
     //     for(int j=i;j<n;j++){
