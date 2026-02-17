@@ -4,23 +4,26 @@ using namespace std;
 vector<int> leaders(vector<int>& arr){
     int n=arr.size();
     vector<int>ans;
-    int left=0;
-    
-    while(left<n ){
-        int right=left + 1;
-        int store=arr[left];
-        while(right<n){
-            if(arr[right]>arr[left]){
-                left++;
-                // right++;
-                store=-1;
-                break;
-            }
+    // BRUTE FORCE
+    // for(int i=0;i<n;i++){
+    //     bool leader=true;
+    //     for(int j=i+1;j<n;j++){
+    //         if(arr[i] <=arr[j]){
+    //             leader=false;
+    //             break;
+    //         }
+    //     }
+    //     if(leader==true){
+    //         ans.push_back(arr[i]);
+    //     }
+    // }
+    // OPTIMAL SOLUTION
 
-            right++;
-        }
-        if(store!=-1){
-            ans.push_back(arr[left]);
+    int maxi=INT_MIN;
+    for(int i=n-1;i>=0;i--){
+        if(arr[i]>maxi){
+            maxi=arr[i];
+            ans.push_back(maxi);
         }
     }
     return ans;
