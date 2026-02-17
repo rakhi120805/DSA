@@ -1,0 +1,68 @@
+++ (C++20 + GNU extensions)
+known limitations
+1	#include <iostream>
+2	using namespace std;
+3	
+4	/**
+5	 * Definition for singly-linked list.
+6	 */
+7	struct ListNode {
+8	    int val;
+9	    ListNode *next;
+10	    ListNode() : val(0), next(nullptr) {}
+11	    ListNode(int x) : val(x), next(nullptr) {}
+12	    ListNode(int x, ListNode *next) : val(x), next(next) {}
+13	};
+14	
+15	class Solution {
+16	public:
+17	    ListNode* reverseKGroup(ListNode* head, int k) {
+18	        ListNode* dummy = new ListNode(0);
+19	        ListNode* temp = dummy;
+20	        ListNode* prev = NULL;
+21	        ListNode* next = NULL;
+22	        ListNode* curr = head;
+23	
+24	        while (head->next != NULL) {
+25	
+26	            int n = k;
+27	            while (n > 0) {
+28	                next = curr->next;
+29	                curr->next = prev;
+30	                prev = curr;
+31	                curr = next;
+32	                n--;
+33	            }
+34	
+35	            temp->next = prev;
+36	            prev = head;
+37	            temp = head;
+38	            head->next = next;
+39	            head = head->next;
+40	        }
+41	
+42	        return dummy->next;
+43	    }
+44	};
+45	
+46	int main() {
+47	    // Creating a sample linked list: 1 -> 2 -> 3 -> 4 -> 5
+48	    ListNode* head = new ListNode(1);
+49	    head->next = new ListNode(2);
+50	    head->next->next = new ListNode(3);
+51	    head->next->next->next = new ListNode(4);
+52	    head->next->next->next->next = new ListNode(5);
+53	
+54	    Solution sol;
+55	    int k = 2;
+56	
+57	    ListNode* result = sol.reverseKGroup(head, k);
+58	
+59	    // Print the resulting list
+60	    while (result != NULL) {
+61	        cout << result->val << " ";
+62	        result = result->next;
+63	    }
+64	
+65	    return 0;
+66	}
