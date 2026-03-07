@@ -14,6 +14,9 @@ using namespace std;
 //     }
 //     return ans;
 // }
+
+// OPTIMAL APPROACH
+
 void transpose_matrix(vector<vector<int>>&matrix){
     int n=matrix.size();
     int m=matrix[0].size();
