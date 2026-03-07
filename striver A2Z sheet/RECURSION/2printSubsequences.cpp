@@ -20,5 +20,6 @@ int main(){
     print(s,0,"");
     for(auto it:st){
         cout<<it<<endl;
+        
     }
 }
