@@ -26,16 +26,16 @@ void print_top(vector<vector<int>>& matrix,int left,int bottom,int top){
 }
 
 void spiralMatrix(vector<vector<int>>& matrix,int top,int bottom,int left,int right){
-    if(top>=bottom||right<=left)return;
+    if(top>bottom||right<left)return;
     print_right(matrix,top,left,right);
     top++;
     print_bottom(matrix,right,top,bottom);
     right--;
-    if(left<=right){
+    if(top<=bottom){
     print_left(matrix,bottom,right,left);
     bottom--;
     }
-    if(top<=bottom){
+    if(left<=right){
     print_top(matrix,left,bottom,top);
     left++;
     }
