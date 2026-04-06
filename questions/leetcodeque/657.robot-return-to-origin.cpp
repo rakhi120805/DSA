@@ -1,0 +1,6 @@
+
+    bool judgeCircle(string moves) {
+
+        
+    }
+
