@@ -1,14 +1,17 @@
-
-
 #include<bits/stdc++.h>
 using namespace std;
-int search(vector<int>& nums, int target) {
+
+bool search(vector<int>& nums, int target){
     int n=nums.size();
     int low=0;
     int high=n-1;
     while(low<=high){
         int mid=low+(high - low)/2;
-        if(nums[mid]==target)return mid;
+        if(nums[mid]==target)return true;
+        else if(nums[mid]==nums[low] && nums[mid]==nums[high]){
+            high--;
+            low++;
+        }
         else if(nums[low]<=nums[mid]){
             if(nums[low]<=target && nums[mid]>target){
                 high=mid-1;
@@ -26,9 +29,9 @@ int search(vector<int>& nums, int target) {
             }
         }
     }
-    return -1;
-}
+    return false;
 
+}
 int main(){
     int n;
     cin>>n;
@@ -41,6 +44,4 @@ int main(){
     int ans=search(arr,target);
     cout<<ans;
 }
-
-
 
