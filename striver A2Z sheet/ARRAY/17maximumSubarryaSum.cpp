@@ -53,6 +53,7 @@ int maximumSubarraySum(vector<int>&arr){
         maxsum=max(maxsum,currsum);
     }
     return maxsum;
+}
 
     // IF I WANT TO PRINT THE WHOLE SUBARRAY
 
