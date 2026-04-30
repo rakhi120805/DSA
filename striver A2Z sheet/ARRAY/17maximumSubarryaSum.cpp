@@ -41,36 +41,48 @@ int maximumSubarraySum(vector<int>&arr){
     //     }
     // }
     // return max_sum;
+// }
+
+// THERE IS ONE MORE WAY TO GET THE MAXSUM
+
+    int currsum=arr[0];
+    int maxsum=arr[0];
+    int n=arr.size();
+    for(int i=1;i<n;i++){
+        currsum=max(arr[i],currsum+arr[i]);
+        maxsum=max(maxsum,currsum);
+    }
+    return maxsum;
 
     // IF I WANT TO PRINT THE WHOLE SUBARRAY
 
-     int sum=0;
-    int max_sum=INT_MIN;
-    int start=0;
-    int ans_start=0;
-    int ans_end=0;
-    for(int i=0;i<arr.size();i++){
-        if(sum == 0){
-            start=i;
-        }
-        sum=sum + arr[i];
-        if(sum > max_sum){
-            max_sum=sum;
-            ans_start=start;
-            ans_end=i;
+//      int sum=0;
+//     int max_sum=INT_MIN;
+//     int start=0;
+//     int ans_start=0;
+//     int ans_end=0;
+//     for(int i=0;i<arr.size();i++){
+//         if(sum == 0){
+//             start=i;
+//         }
+//         sum=sum + arr[i];
+//         if(sum > max_sum){
+//             max_sum=sum;
+//             ans_start=start;
+//             ans_end=i;
 
-        }
-        if(sum<0){
-            sum=0;
-        }
-    }
-    for(int i=ans_start;i<=ans_end;i++){
-        cout<<arr[i]<<" ";
-    }
-    cout<<endl;
+//         }
+//         if(sum<0){
+//             sum=0;
+//         }
+//     }
+//     for(int i=ans_start;i<=ans_end;i++){
+//         cout<<arr[i]<<" ";
+//     }
+//     cout<<endl;
     
-    return max_sum;
-}
+//     return max_sum;
+// }
 
 int main(){
     int n;
