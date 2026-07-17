@@ -24,16 +24,17 @@
 24            vector<int>v;
 25            while(s){
 26                TreeNode * top=q.front();
-27                if(top!=NULL)v.push_back(top->val);
+27                if(top!=NULL){v.push_back(top->val);
 28                q.pop();
-29                
-30                if(top->left)q.push(top->left);
-31                if(top->right)q.push(top->right);
-32                s--;
-33            }
-34        ans.push_back(v);
-35
-36        }
-37        return ans;
-38    }
-39};
+29                }
+30                
+31                if(top->left)q.push(top->left);
+32                if(top->right)q.push(top->right);
+33                s--;
+34            }
+35        ans.push_back(v);
+36
+37        }
+38        return ans;
+39    }
+40};
