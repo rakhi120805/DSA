@@ -1,21 +1,13 @@
-1class Solution {
-2public:
-3    void moveZeroes(vector<int>& nums) {
-4        int j=-1;
-5        for(int i=0;i<nums.size();i++){
-6            if(nums[i]==0){
-7                j=i;
-8                break;
-9            }
-10        }
-11        if(j<nums.size()){
-12        for(int i=j+1;i<nums.size();i++){
-13            if(nums[i]!=0){
-14                swap(nums[i],nums[j]);
-15                j++;
-16            }
-17        }
-18        }
-19    
-20}
-21};
+class Solution:
+    def moveZeroes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        pos = 0
+        
+        for i in range(len(nums)):
+            el = nums[i]
+            if el != 0:
+                nums[pos], nums[i] = nums[i], nums[pos]
+                pos += 1
