@@ -2,9 +2,9 @@
 2public:
 3    void r(string &s){
 4        reverse(s.begin(),s.begin()+1);
-5        cout<<s<<" ";
+5        // cout<<s<<" ";
 6        reverse(s.begin()+1,s.end());
-7        cout<<s<<" ";
+7        // cout<<s<<" ";
 8        reverse(s.begin(),s.end());
 9    }
 10    bool rotateString(string s, string goal) {
@@ -13,7 +13,7 @@
 13        int n=1;
 14        while(n<s.size()){
 15            r(s);
-16            cout<<s<<' ';
+16            // cout<<s<<' ';
 17            if(s==goal)return true;
 18            n++;
 19        }
