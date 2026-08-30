@@ -1,6 +1,56 @@
-"B"
-"RILmT0oZF8"
-"dApqqbh7pNtDplFTLnSf"
-"oMd6DBkNgnXEAYxN0KBUZi2t7HOEZy77UOtZo3l119bKJOgaD3"
-"ApsY9AQF2xsz1pbHl5Po7Q1yKNOthVVY9wkGrvktI1dcbXirB5k82sK1lFrx2Wv3mc1viEfvt31TRor6HFCe4M40hztHX3pVSAoi"
-"IkWBhGISvgpEEvw5XdEp25kwMtnf2ww7sbbEqoOx9BXz2pS2TE7YolAw42hioODDph5FfadcWyFMpln381SinvWe6Lzz5b8hkCvnIU38ph0T1iXPp2elYNunfqH1wH1luqfgZ51LQIGkOVT9JnNSgYnBzooJBcXKeet4NnjfuEIhQBl5C4M4pE4DJSlJ6YZilH7qvSjdnixjJDin6Xpk3xaMd2TRSFGAZo7HqSu0NmlKrzgEK3n5jfNkm0SGvaFNyUTAQVcEnLx4omizRJg0lB72y4yNh4GpBddD6SiP9yuPjo96U3QZJMFlAFNP4psWR3MoCKwmIlzyEWdcgDdXnoDBWYqpTMXGx90pDMpezvvQ99HKuUhJLWgGu7EEU49SnpebahRXtpuGchpBRnzfY6ZMMGkjhEIe5lFEiNNNagfhgMRf6I4udgP9y84YyLXWETO40xVOc5ntXqvzvko63FzugCWxzugJzKA2AmdCFNs1mZQSW8oJwWc58TnmaatX5P7ub98O9boTTncWPS7zd5xaVutjPhtg6VLew3Rq0UXOz1Pl2BeNLwJJ9SUuGewwVgRqpECIn0Y9VLq5cE5QKsVJxcRDiqtOP9Aan4u8UgypcTa0ngDw4ejJFDNofwybaOD53vFI99cCMnhFUkKV8DsqFtx8gLnw3L5uL60BWJ0aLPpW46LvUzPjbWjTRJHzWj7P6z4nNDYNoMg9OoZU2fkyELtz4Vq8R5BsIcC4lrC12AMjfPju1Oy4rmGqDcZZMNy5bG9Z8qvgIc6bhu6qfVB2P4i0XtHw9Fsr4pv8rY5WgXv8XYcL2Fj3cnNgGj2a9IoFHWQvt8SWxG33LOW7NU8P39Zoh13C84bm4JfyDG6pcByhPAEFURTfJn0aNiMyGo1zyD6G2K4uvpnOvhCJGB591HcnxQw34Jju0Ag1fEatI4lQWj8XewxpuDzzjMXaUkApHhRpmJXzepzH9e0rFb0uL6B7uhZbYAKCX7QX"
+1class Solution {
+2public:
+3    typedef pair<char,int>P;
+4    string frequencySort(string s) {
+5        vector<P>v(123);
+6        for(char &ch:s){
+7            int freq=v[ch].second;
+8            v[ch]={ch,freq+1};
+9        }
+10        auto lambda=[&](P &P1,P &P2){return P1.second>P2.second;};
+11        sort(v.begin(),v.end(),lambda);
+12        string res="";
+13
+14
+15        for(int i=0;i<v.size();i++){
+16            if(v[i].second>0){
+17                char c=v[i].first;
+18                int freq=v[i].second;
+19                string a=string(freq,c);
+20                res+=a;
+21            }
+22
+23        }
+24    
+25        return res;
+26
+27
+28
+29        // map<char,int>mpp;
+30        // for(int i=0;i<s.size();i++){
+31        //     mpp[s[i]]++;
+32        // }
+33        // vector<pair<char,int>>v;
+34        // for(auto it:mpp){
+35        //     v.push_back({it.first,it.second});
+36        // }
+37        // for(auto it:v){
+38        //     cout<<it.first<<" "<<it.second;
+39        // }
+40
+41        // string ans;
+42        // sort(v.begin(),v.end(),[](auto &a,auto &b){
+43        //     return a.second>b.second;
+44        // });
+45        // for(auto it:v){
+46        //     while(it.second--){
+47        //         ans+=it.first;
+48        //     }
+49            
+50        // }
+51
+52        // return ans;
+53
+54        
+55    }
+56};
